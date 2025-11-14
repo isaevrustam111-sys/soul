@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sehriyo SpaceTalk 🚀</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- звёздный фон -->
+  <canvas id="stars"></canvas>
+
+  <!-- планеты: ВАЖНО — именно такие обёртки и классы -->
+  <div class="p p-earth"><img src="earth.png" alt="Earth" /></div>
+  <div class="p p-jupiter"><img src="jupiter.png" alt="Jupiter" /></div>
+  <div class="p p-neptune"><img src="neptune.png" alt="Neptune" /></div>
+  <div class="p p-mars"><img src="mars.png" alt="Mars" /></div>
+  <div class="p p-saturn"><img src="saturn.png" alt="Saturn" /></div>
+
+  <!-- центральная карточка -->
+  <div class="card">
+    <h1>🪐 Sehriyo <span>SpaceTalk</span> 🚀</h1>
+    <p class="sub">Спроси про космос — получи ответ голосом из будущего</p>
+    <div class="controls">
+      <button id="talkBtn" class="btn primary">🎙 Говорить</button>
+      <button id="stopBtn" class="btn danger" style="display:none">🛑 Стоп</button>
+    </div>
+    <p id="status">Остановлено</p>
+  </div>
+
+  <script src="stars.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

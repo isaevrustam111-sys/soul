@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sehriyo SpaceTalk 🚀</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Звёздный фон -->
+  <canvas id="stars"></canvas>
+
+  <!-- Планеты -->
+  <div class="planet earth"><img src="earth.png" alt="Earth"></div>
+  <div class="planet jupiter"><img src="jupiter.png" alt="Jupiter"></div>
+  <div class="planet neptune"><img src="neptune.png" alt="Neptune"></div>
+  <div class="planet mars"><img src="mars.png" alt="Mars"></div>
+  <div class="planet saturn"><img src="saturn.png" alt="Saturn"></div>
+
+  <!-- Центр -->
+  <div class="card">
+    <!-- Лого сверху -->
+    <img src="sehriyo-logo.png" alt="Sehriyo Logo" class="logo">
+
+    <!-- Переключатель языка -->
+    <div class="lang-switch">
+      <button id="langRu" class="btn small">🇷🇺 RU</button>
+      <button id="langUz" class="btn small">🇺🇿 UZ</button>
+    </div>
+
+    <!-- Заголовок -->
+    <h1>Sehriyo <span>SpaceTalk</span></h1>
+
+    <!-- Подзаголовок -->
+    <p class="sub">Спрашивай про космос — отвечу голосом, кратко (до 25 слов)</p>
+
+    <!-- Кнопки -->
+    <div class="controls">
+      <button id="talkBtn" class="btn primary">🎙 Говорить</button>
+      <button id="stopBtn" class="btn danger" style="display:none">🛑 Стоп</button>
+    </div>
+
+    <!-- Статус -->
+    <p id="status"></p>
+  </div>
+
+  <script src="stars.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

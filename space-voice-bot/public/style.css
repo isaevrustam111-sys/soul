@@ -1,0 +1,167 @@
+:root{
+  --card-bg: rgba(6,10,32,0.88);
+  --cyan:#00eaff; --blue1:#23b7ff; --blue2:#0a7df5; --red1:#ff3a4d; --red2:#b51426;
+}
+*{ box-sizing:border-box; }
+html,body{ height:100%; margin:0; }
+body{
+  background: radial-gradient(ellipse at center, #000016, #000);
+  color:#fff; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  overflow:hidden; 
+}
+
+/* звёзды */
+#stars{ position:fixed; inset:0; z-index:0; }
+
+/* карточка в центре */
+.card{
+ position:fixed; 
+  left:50%; 
+  top:50%; 
+  transform:translate(-50%,-50%);
+  width:clamp(400px, 95vw, 900px);
+  min-height: 420px;
+  background: url("/123.png") center/cover no-repeat;
+  border-radius:24px;
+  padding:32px;
+  text-align:center;
+  box-shadow:0 0 46px rgba(0,234,255,.55), inset 0 0 28px rgba(0,30,80,.6);
+  z-index:3; 
+  backdrop-filter: blur(4px);
+}
+
+.logo {
+  width: 70px;
+  margin-bottom: 6px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+  margin:4px 0 6px;
+  font-weight:900;
+  font-size:clamp(28px,4vw,42px);
+  color:var(--cyan);
+  text-shadow:0 0 12px rgba(0,255,255,.7), 0 0 28px rgba(255,0,255,.3);
+}
+h1 span{ color:#7de3ff; }
+
+.sub{
+  margin: 8px 0 22px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #e0f7ff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 
+               0 0 18px rgba(0, 150, 255, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.controls{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin:8px 0 12px;
+}
+
+.btn{
+ border:0;
+  padding:32px 50px;
+  border-radius:20px;
+  font-weight:900;
+  font-size:30px;
+  color:#fff;
+  cursor:pointer;
+  min-width: 260px;
+}
+.btn.primary{ background:linear-gradient(180deg,var(--blue1),var(--blue2)); }
+.btn.danger { background:linear-gradient(180deg,var(--red1),var(--red2)); }
+
+#status{
+  margin-top:8px;
+  font-size:1rem;
+  color:var(--cyan);
+}
+
+/* === ПЛАНЕТЫ === */
+.planet{
+  position:fixed;
+  z-index:2;
+  width: clamp(100px, 12vw, 180px);
+  filter: drop-shadow(0 0 20px rgba(120,200,255,.55));
+}
+
+/* Земля и Марс — прыжки + вращение */
+.earth, .mars {
+  animation: floatY 14s ease-in-out infinite alternate;
+}
+.earth img, .mars img {
+  width:100%;
+  height:auto;
+  display:block;
+  animation: spin 60s linear infinite;
+}
+
+/* Юпитер, Нептун, Сатурн — только прыжки */
+.jupiter { animation: floatY 18s ease-in-out infinite alternate; }
+.jupiter img { width:100%; height:auto; display:block; animation: none; }
+
+.neptune { animation: floatY 22s ease-in-out infinite alternate; }
+.neptune img { width:100%; height:auto; display:block; animation: none; }
+
+.saturn { animation: floatY 26s ease-in-out infinite alternate; }
+.saturn img { width:100%; height:auto; display:block; animation: none; }
+
+/* позиции */
+.earth   { left: 5vw;  bottom: 10vh; }
+.jupiter { left: 10vw; top:   15vh; }
+.neptune { right: 40vw; top: 2vh; }
+.mars    { right: 6vw; top:   20vh; }
+.saturn  { right: 8vw; bottom: 12vh; }
+
+/* анимации */
+@keyframes floatY { 
+  from { transform: translateY(0); } 
+  to   { transform: translateY(-28px); } 
+}
+@keyframes spin { 
+  from { transform: rotate(0); } 
+  to   { transform: rotate(360deg); } 
+}
+
+@media (max-width:560px){
+  .card{
+    width:90vw;
+    min-height: 320px;
+    padding:20px;
+  }
+  .earth{left:3vw;bottom:6vh;}
+  .jupiter{left:6vw;top:10vh;}
+  .neptune{right:12vw;top:8vh;}
+  .mars{right:3vw;top:12vh;}
+  .saturn{right:4vw;bottom:6vh;}
+}
+/* === Переключатель языков === */
+.lang-switch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.btn.small {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  min-width: auto;
+  background: linear-gradient(180deg, var(--blue1), var(--blue2));
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.small:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.6);
+}
+
